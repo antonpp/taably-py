@@ -1,0 +1,167 @@
+{% extends 'base_editor.html' %}
+
+{% block content %}
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="#">taably</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li><a href="/top/">Layouts</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#about">Contact</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="span12">
+      <div class="well search-wrapper">
+        <form class="form-horizontal form-search">
+            <label id="i-want-blob" class="control-label" for="img-search-input">I want a table on top of </label>
+            <div class="controls">
+              <input type="text" value="a simple dark background" class="input-xlarge" id="img-search-input">
+              <button type="button" class="btn btn-large" id="img-search-btn">Search <i class="icon-search" id="icon-search"></i></button>
+              <p class="help-block search-suggestions">Try <a>dark wood background</a> , <a>grass background</a> , <a>simple backdrop</a> &hellip;</p>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div> <!-- row -->
+  <div class="row">
+    <div class="span3">
+      <div class="btn-group" id="table-selector-group">
+      </div>
+
+      <div class="btn-toolbar">
+        <div class="btn-group">
+          <div class="btn">
+            <div class="color-preset-btn table-color-preset" style="background-color: #363636;"></div>
+            <div class="color-preset-btn table-color-preset" style="background-color: #355C17;"></div>
+            <div class="color-preset-btn table-color-preset" style="background-color: #235080;"></div>
+            <div class="color-preset-btn table-color-preset" style="background-color: #802525;"></div>
+            <div class="color-preset-btn table-color-preset" style="background-color: #4D3A10;"></div>
+          </div>
+          <div class="btn"><input id="table-color-picker" type="hidden" value="color"/></div>
+        </div>
+      </div>
+
+
+      <hr>
+
+      <div class="btn-group">
+          <a class="btn bg-selector style-selector" value="color">color</a>
+          <a class="btn bg-selector style-selector" value="radient">radient</a>
+          <a class="btn bg-selector style-selector" value="gradient">gradient</a>
+          <a class="btn bg-selector style-selector" value="image">image</a>
+      </div>
+
+      <div class="btn-toolbar">
+        <div class="btn-group">
+          <div class="btn">
+            <div class="color-preset-btn bg-color-preset" style="background-color: #363636;"></div>
+            <div class="color-preset-btn bg-color-preset" style="background-color: #355C17;"></div>
+            <div class="color-preset-btn bg-color-preset" style="background-color: #235080;"></div>
+            <div class="color-preset-btn bg-color-preset" style="background-color: #4D3A10;"></div>
+          </div>
+          <div class="btn">
+            <input id="bg-color-picker-1" type="hidden" value="color"/>
+            <input id="bg-color-picker-2" type="hidden" value="color"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-picture"></i></span>
+        <select id="bg-preset-select" class="span2">
+        </select>
+      </div>
+      <div class="input-append">
+        <input class="span2" id="background-url" size="36" placeholder="background image url" type="text">
+        <span class="btn add-on" id="background-url-toggle"><i class="icon-ok"></i></span>
+      </div>
+
+      <hr>
+
+      <div class="input-append">
+        <input class="span2" id="logo-url" size="36" placeholder="logo image url" type="text">
+        <span class="btn add-on" id="logo-url-toggle"><i class="icon-ok"></i></span>
+      </div>
+      <div class="btn-toolbar">
+        <div class="btn-group">
+          <div class="btn" id="opacity-minus"><i class="icon-minus"></i></div>
+          <div class="btn disabled param-label" id="opacity-label">opacity 100%</div>
+          <div class="btn" id="opacity-plus"><i class="icon-plus"></i></div>
+        </div>
+      </div>
+
+      <div class="btn-toolbar">
+        <div class="btn-group">
+          <div class="btn" id="scale-minus"><i class="icon-minus"></i></div>
+          <div class="btn disabled param-label" id="scale-label">scale 100%</div>
+          <div class="btn" id="scale-plus"><i class="icon-plus"></i></div>
+        </div>
+      </div>
+
+      <hr>
+      <input id="share-layout-name" class="left-hand-ctrl" size="36" placeholder="Share layout as..." type="text">
+      <button class="btn btn-large btn-success left-hand-ctrl" id="share-layout-btn"><i class="icon-share-alt icon-white"></i> Share layout</button>
+      <hr>
+
+    </div>
+    <div class="span9">
+      <div class="well" id="table-widget-wrapper">
+        <canvas style = "background-color: #222" id="designer-canvas" width="800px" height="577px">
+          <div class="loader"><img src="{{ STATIC_URL }}img/blue_spinner.gif"/></div>
+        </canvas>
+      </div>
+      <div class="well alert-rooms">
+         <div class="btn-group btn-group-rooms">
+          <a data-width=792 data-height=546 class="btn btn-large room-selector">Poker Stars</a>
+          <a data-width=800 data-height=577 class="btn btn-large room-selector">iPoker Network</a>
+          <a data-width=794 data-height=511 class="btn btn-large room-selector">Party Poker</a>
+          <a data-width=900 data-height=400 class="btn btn-large room-selector">888 Poker</a>
+          <a data-width=768 data-height=564 class="btn btn-large room-selector">Ongame</a>
+          <a class="btn btn-primary btn-large" id="download-layout"><i class="icon-download-alt icon-white"></i> Download</a>
+         </div>
+      </div>
+   </div>
+ </div><!-- row -->
+
+  <hr>
+
+  <footer>
+    <p>&copy; M3 Projects Ltd. 2012</p>
+  </footer>
+
+</div> <!-- /container -->
+
+
+      <!-- <div class="modal-backdrop fade in"></div> -->
+      <div id="save-image-modal" class="modal hide fade in" style="display: none; max-height: 600px;">
+        <div class="modal-header">
+          <a data-dismiss="modal" class="close">&times;</a>
+          <h3>Download image</h3>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-info">Right click on the image and select <strong>"Save image as"</strong></div>
+          <img id="rendered-image" />
+        </div>
+      </div>
+
+
+
+<script src="{{ STATIC_URL }}js/bootstrap-modal.js"></script>
+<script src="{{ STATIC_URL }}js/bootstrap-collapse.js"></script>
+<script src="{{ STATIC_URL }}js/bootstrap-transition.js"></script>
+{% endblock %}

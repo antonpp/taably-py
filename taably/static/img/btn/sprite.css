@@ -1,0 +1,32 @@
+.btn-arrow-left-png {
+	background-image: url("sprite.png");
+	background-repeat: no-repeat;
+	background-position: -2px -2px;
+	width: 31px;
+	height: 44px;
+}
+
+.btn-arrow-left-hover-png {
+	background-image: url("sprite.png");
+	background-repeat: no-repeat;
+	background-position: -2px -48px;
+	width: 31px;
+	height: 44px;
+}
+
+.btn-arrow-right-png {
+	background-image: url("sprite.png");
+	background-repeat: no-repeat;
+	background-position: -2px -94px;
+	width: 31px;
+	height: 44px;
+}
+
+.btn-arrow-right-hover-png {
+	background-image: url("sprite.png");
+	background-repeat: no-repeat;
+	background-position: -2px -140px;
+	width: 31px;
+	height: 44px;
+}
+

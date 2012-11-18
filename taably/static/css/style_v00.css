@@ -1,0 +1,223 @@
+.color-preset-btn {
+	height: 22px;
+	width: 22px;
+	background: url(images/color_btn.png) center no-repeat;
+	vertical-align: middle;
+	margin: 0 .25em;
+	display: inline-block;
+	outline: none;
+}
+.bg-color-selection-btn {
+	height: 22px;
+	width: 22px;
+	background: url(images/color_btn.png) center no-repeat;
+	vertical-align: middle;
+	margin: 0 .25em;
+	display: inline-block;
+	outline: none;
+}
+
+.miniColors-trigger {
+	height: 22px;
+	width: 22px;
+	background: url(images/trigger.png) center no-repeat;
+	vertical-align: middle;
+	margin: 0 .25em;
+	display: inline-block;
+	outline: none;
+}
+.masthead {
+  margin-bottom: 30px;
+  background-color: white;
+  background-image: url("../img/titradka.png");
+  background-repeat: repeat;
+  border-bottom: 4px solid #f8d575;
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25); }
+
+/* supporting docs pages */
+.subhead {
+  background: #f1f1f1 url(../img/noisy_fabric.png);
+  border-top: 1px solid #bbbbbb;
+  border-bottom: 1px solid #eee;
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25); }
+
+
+.hero-unit {
+  padding: 20px;
+  margin: 0px;
+  text-align: center;
+  background-color: transparent;
+}
+.hero-unit h1 {
+  margin-bottom: 0;
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.hero-unit p {
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 27px;
+}
+.canvas-container {
+  border: 8px solid #eeeeee;
+  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  margin: 0px auto;
+}
+.loader {
+  z-index: 2;
+  position: relative;
+  top: 200px;
+  float: center;
+}
+
+#table-widget-wrapper {
+  padding: 30px 10px;
+  text-align: center;
+}
+
+.style-selector {
+  width: 56px;
+  height: 30px;
+  padding: 0px;
+  padding-top: 10px;
+  text-align: center;
+}
+.btn-control-label {
+  display: inline-block;
+  position: relative;
+  clear: both;
+  line-height: 18px;
+  height: 20px;
+}
+.btn-control-label p{
+}
+#rendered-image {
+  border: 1px solid #eeeeee;
+  -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.45);
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.45)
+}
+.brand {
+  font-family: 'Fugaz One', cursive;
+  font-size: 18px;
+}
+.hero-unit h1 {
+  font-family: 'Ubuntu', sans-serif;
+}
+.hero-unit p {
+  font-family: 'Fugaz One', cursive;
+}
+.param-label {
+  width: 105px;
+}
+.btn-group-rooms {
+  display: inline-block;
+}
+.alert-rooms {
+  text-align: center;
+}
+.search-wrapper {
+  padding-bottom: 0px;
+}
+.search-wrapper label{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 26px;
+}
+#i-want-blob {
+  width: 500px;
+  margin-right: 8px;
+  padding-top: 11px;
+}
+#img-search-input {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 26px;
+  height: 30px;
+  width: 300px;
+  padding-left: 10px;
+  margin-left: 0px;
+}
+.search-suggestions {
+  margin: 0px;
+  margin-left: 350px;
+  margin-top: 2px;
+  color: #666;
+}
+#img-search-btn {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  margin-left: 6px;
+}
+.form-search {
+  margin: 0px;
+  margin-bottom: 6px;
+  margin-top: 6px;
+}
+#icon-search {
+  margin-top: 4px;
+}
+.search-results {
+  position: absolute;
+  bottom: 0px;
+  background: rgba(0,0,0,.3);
+  width: 100%;
+  height: 150px;
+}
+.search-result {
+  display: inline-block;
+  width: 140px;
+  height: 100px;
+  margin: 30px 15px;
+  border: 1px solid #222;
+  background-color: none;
+  cursor: pointer;  
+  -webkit-background-size: 130%;
+  -moz-background-size: 130%;
+  -o-background-size: 130%;
+  background-size: 130%;
+  background-position: 30% 40%;
+  -moz-box-shadow: 0 0 10px #bbb;
+  -webkit-box-shadow: 0 0 5px #ddd;
+  -ms-box-shadow: 0 0 5px #ddd;
+  box-shadow: 0px 0px 10px #bbb;
+}
+.search-result:hover {
+  -moz-box-shadow: 0 0 15px #eee;
+  -webkit-box-shadow: 0 0 15px #eee;
+  -ms-box-shadow: 0 0 15px #eee;
+  box-shadow: 0px 0px 15px #eee;
+}
+#close-search {
+  position: absolute;
+  right: 0px;
+  margin: 4px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.btn-search-nav-left {
+  position: absolute;
+  margin: 5px;
+  top: 55px;
+  opacity: 0.6;
+  cursor: pointer;
+}
+.btn-search-nav-right {
+  position: absolute;
+  float: right;
+  margin: 5px;
+  top: 55px;
+  right: 0px;
+  opacity: 0.6;
+  cursor: pointer;
+}
+.left-hand-ctrl {
+  width: 200px;
+}

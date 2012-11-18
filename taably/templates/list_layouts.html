@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h2>Poker table layouts:</h2>
+  {% for layout in layouts %}
+  <p><a href="{{ layout.get_absolute_url }}">{{ layout.name }}</a></p>
+  {% endfor %}
+</div>
+{% endblock %}

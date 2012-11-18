@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Taably - online poker table designer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <script type="text/javascript">
+      window.STATIC_URL = "{{ STATIC_URL }}";
+    </script>
+    <!-- Le styles -->
+    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700|Fugaz+One' rel='stylesheet' type='text/css'>
+    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/colorpalette.css" type="text/css" media="screen">
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.miniColors.js"></script>
+    <script src="{{ STATIC_URL }}js/fabricjs/0.8.32.js"></script>
+    <script src="{{ STATIC_URL }}js/underscore.js"></script>
+    <script src="{{ STATIC_URL }}js/m3HelperFun.js"></script>
+    <script src="{{ STATIC_URL }}js/raphael.js"></script>
+    <script src="{{ STATIC_URL }}js/dunder.js"></script>
+    <script src="{{ STATIC_URL }}js/TableDesignerData.js"></script>
+    <script src="{{ STATIC_URL }}js/TableDesigner.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/jquery.miniColors.css" />
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}img/btn/sprite.css" />
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/style_v00.css" />
+
+    
+    <script src="{{ STATIC_URL }}js/jquery.fileDownload.js"></script>
+    <script src="{{ STATIC_URL }}js/core-min.js"></script>
+    <script src="{{ STATIC_URL }}js/enc-base64-min.js"></script>
+    <script src="{{ STATIC_URL }}js/BingImageSearcher.js"></script>
+    <script src="{{ STATIC_URL }}js/scripts.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/django_csrf.js"></script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36412803-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    {% if layout %}
+    <script type="text/javascript">
+      window.layout = {
+        'data': '{{ layout.data|safe }}',
+        'name': '{{ layout.name|safe }}',
+        'slug': '{{ layout.slug }}',
+        'created_date': '{{ layout.created_date }}',
+      }
+    </script>
+    {% endif %}
+  </head>
+  <body>
+    {% block content %}
+    {% endblock %}
+  </body>
+

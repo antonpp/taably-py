@@ -1,0 +1,7 @@
+/taably/static/resources
+venv
+*.pyc
+*.swp
+/taably/local_settings.py
+.DS_Store
+*.DS_Strore
