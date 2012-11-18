@@ -12,16 +12,22 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '%s/../wikiville_db.sql' % PROJECT_ROOT,                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
+import dj_database_url
+cfg = dj_database_url.config(default='postgres://localhost')
+
+if cfg['NAME'] != "" :
+  DATABASES = {'default': cfg}
+else:
+  DATABASES = {
+      'default': {
+          'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+          'NAME': '%s/../wikiville_db.sql' % PROJECT_ROOT,                      # Or path to database file if using sqlite3.
+          'USER': '',                      # Not used with sqlite3.
+          'PASSWORD': '',                  # Not used with sqlite3.
+          'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+          'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+      }
+  }
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
