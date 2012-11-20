@@ -4,9 +4,11 @@ from django.shortcuts import get_object_or_404, render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse
 from django.utils import simplejson
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 from layouts.models import Layout
 
+@ensure_csrf_cookie
 def home(request):
   return render_to_response('edit_layout.html', context_instance=RequestContext(request))
 
@@ -39,11 +41,13 @@ def add_layout(request):
   else:
     return HttpResponse(content="Method not allowed", status=405)
 
+@ensure_csrf_cookie
 def list_layouts(request):
   layouts = Layout.objects.all()
   return render_to_response('list_layouts.html', {'layouts': layouts}, 
                             context_instance=RequestContext(request))
 
+@ensure_csrf_cookie
 def edit_layout(request, slug, date):
   dt = datetime.datetime.strptime(date, "%y%m%d")
   layout = get_object_or_404(Layout, slug=slug, created_date__year=dt.year, 
