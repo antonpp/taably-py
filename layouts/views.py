@@ -13,7 +13,7 @@ def home(request):
   return render_to_response('edit_layout.html', context_instance=RequestContext(request))
 
 def get_default(request):
-  default_layout = get_object_or_404(Layout, pk=1)
+  default_layout = get_object_or_404(Layout, pk=2)
   dthandler = lambda obj: obj.isoformat() if isinstance(obj, datetime.datetime) else None
   return HttpResponse(
       simplejson.dumps(dict(default_layout.__dict__), default=dthandler), 
