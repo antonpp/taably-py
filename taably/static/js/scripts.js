@@ -371,16 +371,16 @@ window.onload = function () {
   })
 
   $(ID_DOWNLOAD_LAYOUT_BTN).click(function() {
-    var onSuccess = function() {
-      hideLoader();
+    if ($(CLASS_ROOM_SELECTOR+".active").length === 1) {
+      var selRoom = $(CLASS_ROOM_SELECTOR+".active").attr('data-room');
+    } else {
+      // render for party_poker if no room selected or somehow multiple
+      var selRoom = "party_poker";
     }
-    var onFail = function() {
-      alert('An error occured when downloading the image. Sorry about that.');
-    }
-    __.log(JSON.stringify(designer));
     $('<form action="/api/v0/layout/render/" method="POST">' + 
     '<input type="hidden" name="data" value="' + escape(JSON.stringify(designer)) + '">' +
     '<input type="hidden" name="name" value="' + escape(window.layout.name) + '">' +
+    '<input type="hidden" name="room" value="' + escape(selRoom) + '">' +
     '</form>').appendTo('body').submit().remove();
   }); // on download click
 
