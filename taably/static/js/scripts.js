@@ -64,27 +64,18 @@ window.onload = function () {
   });
 
   var on_table_color_preset_click = function() {
-    var bg_color = $(this).getHexBackgroundColor();
-    //$(document).trigger(CHANGE_FELT_COLOR, { color:  bg_color} );
-    $(ID_TABLE_COLOR_PICKER).miniColors('value', bg_color);
+    var selColor = $(this).getHexBackgroundColor();
+    //$(document).trigger(CHANGE_FELT_COLOR, { color:  selColor} );
+    $(ID_TABLE_COLOR_PICKER).miniColors('value', selColor);
   }
 
   $(CLASS_TABLE_COLOR_PRESET).click(on_table_color_preset_click);
 
   var on_bg_color_preset_click = function() {
     //TODO: check background selection and adjust coloring logic accordingly
-    var bg_color = $(this).css("background-color");
-    var bg_color_hex = $(this).getHexBackgroundColor();
-    var hsl = Raphael.rgb2hsl(bg_color);
-    var hits = hsl.toString().match(/^hsl\((.+),(.+),(.+)\)$/);
-    var h = hits[1];
-    var s = hits[2];
-    var l = hits[3];
-    hsl = "hsl("+h+","+s+","+(parseFloat(l)*0.30).toString()+")";
-    var bg_color2 = Raphael.hsl2rgb(hsl);
-
-    $(ID_BG_COLOR_PICKER_I).miniColors('value', bg_color_hex);
-    $(ID_BG_COLOR_PICKER_II).miniColors('value', rgb2hex(bg_color2));
+    var selColor = $(this).getHexBackgroundColor();
+    $(ID_BG_COLOR_PICKER_I).miniColors('value', selColor);
+    $(ID_BG_COLOR_PICKER_II).miniColors('value', hexLuminance(selColor, -0.70));
     $(document).trigger(CHANGE_BG_COLOR, { } );
   }
   $(CLASS_BG_COLOR_PRESET).click(on_bg_color_preset_click);
@@ -210,17 +201,6 @@ window.onload = function () {
   }
   $(ID_LOGO_URL_TOGGLE).click(on_logo_url_toggle);
 
-  var on_render = function() {
-    var img_url = document.getElementById(ID_CANVAS_HIDDEN).toDataURL("image/png");
-    $("#rendered-image").attr("src",img_url);
-    $('#save-image-modal').modal('show');
-  }
-  $('#save-image-modal').modal({
-    keyboard: true,
-    backdrop: true,
-    show: false
-  });
-
   var on_table_selector_click = function(){
     $(CLASS_TABLE_SELECTOR).removeClass('active');
     $(this).addClass('active');
@@ -275,7 +255,7 @@ window.onload = function () {
   var table_select = $(ID_TABLE_SEL_GROUP);
   for (item in m3.dd.table) {
     if (m3.dd.table.hasOwnProperty(item)){
-      table_select.append('<div class="btn table-selector style-selector" name="'+item+'">' + item + '</div>');
+      table_select.append('<div class="btn table-selector style-selector" name="'+item+'"><div class="' + m3.dd.table[item].css + '"></div></div>');
     }
   }
   $(CLASS_TABLE_SELECTOR).click(on_table_selector_click);
@@ -361,10 +341,12 @@ window.onload = function () {
   } // _loadLayout
 
   if (typeof window.layout !== 'undefined' && typeof window.layout.data === 'string') {
+    $("#share-layout-name").val(window.layout.name);
     _loadLayout(window.layout.data);
   } else {
     $.getJSON('/api/v0/layout/get/default/', function(response) {
       _loadLayout(response.data);
+      $("#share-layout-name").val(response.name);
       window.layout = response;
     }) 
   }
@@ -382,8 +364,10 @@ window.onload = function () {
 
   // when user navigates back/forward after saving layouts
   $(window).on('popstate', function(e) {
-    if (e.originalEvent.state && typeof e.originalEvent.state.data === 'string')
+    if (e.originalEvent.state && typeof e.originalEvent.state.data === 'string') {
+      $("#share-layout-name").val(e.originalEvent.state.name);
       designer.loadFromJSON(e.originalEvent.state.data);
+    }
   })
 
   $(ID_DOWNLOAD_LAYOUT_BTN).click(function() {
@@ -398,14 +382,6 @@ window.onload = function () {
     '<input type="hidden" name="data" value="' + escape(JSON.stringify(designer)) + '">' +
     '<input type="hidden" name="name" value="' + escape(window.layout.name) + '">' +
     '</form>').appendTo('body').submit().remove();
-    /*
-    $.fileDownload('/api/v0/layout/render/', {
-      'data': JSON.stringify(designer), 
-      'httpMethod': 'POST',
-      'successCallback': onSuccess,
-      'failCallback': onFail
-    });
-    */
   }); // on download click
 
 }; // onload

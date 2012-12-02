@@ -12,32 +12,17 @@
     </script>
     <!-- Le styles -->
     <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-      }
-    </style>
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700|Fugaz+One' rel='stylesheet' type='text/css'>
-    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/colorpalette.css" type="text/css" media="screen">
-
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/base.css" />
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.miniColors.js"></script>
-    <script src="{{ STATIC_URL }}js/fabricjs/0.8.32.js"></script>
+    <script src="{{ STATIC_URL }}js/fabric_0.8.32.js"></script>
     <script src="{{ STATIC_URL }}js/underscore.js"></script>
     <script src="{{ STATIC_URL }}js/m3HelperFun.js"></script>
-    <script src="{{ STATIC_URL }}js/raphael.js"></script>
     <script src="{{ STATIC_URL }}js/dunder.js"></script>
     <script src="{{ STATIC_URL }}js/TableDesignerData.js"></script>
     <script src="{{ STATIC_URL }}js/TableDesigner.js"></script>
-
     <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/jquery.miniColors.css" />
     <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}img/btn/sprite.css" />
-    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/style_v00.css" />
-
-    
-    <script src="{{ STATIC_URL }}js/jquery.fileDownload.js"></script>
     <script src="{{ STATIC_URL }}js/core-min.js"></script>
     <script src="{{ STATIC_URL }}js/enc-base64-min.js"></script>
     <script src="{{ STATIC_URL }}js/BingImageSearcher.js"></script>
@@ -65,8 +50,24 @@
     </script>
     {% endif %}
   </head>
-  <body>
+<body>
+  <div class="topbar"><div class="container">
+      <div class="left">
+        <div class="btn-taably-logo-png"></div>
+      </div>
+      <div class="right">
+        <div class="save-wrapper">
+          <input id="share-layout-name" placeholder="Type layout name here" class="save-input" type="text">
+          <button id="share-layout-btn" class="btn save-btn" type="button"><i class="icon-white icon-share-alt"></i> Save layout</button>
+        </div>
+      </div>
+  </div></div>
+  <div class="container">
     {% block content %}
     {% endblock %}
-  </body>
-
+    <div class="footer">
+      <p>&copy; taably 2012 | Send me an email if you have any feature requests or problems | <a href="mailto:taably@gmail.com">contact</a></p>
+    </div>
+  </div><!-- container -->
+</body>
+</html>

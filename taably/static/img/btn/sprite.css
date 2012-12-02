@@ -1,7 +1,7 @@
 .btn-arrow-left-png {
 	background-image: url("sprite.png");
 	background-repeat: no-repeat;
-	background-position: -2px -2px;
+	background-position: -2px -0px;
 	width: 31px;
 	height: 44px;
 }
@@ -9,7 +9,7 @@
 .btn-arrow-left-hover-png {
 	background-image: url("sprite.png");
 	background-repeat: no-repeat;
-	background-position: -2px -48px;
+	background-position: -2px -46px;
 	width: 31px;
 	height: 44px;
 }
@@ -17,7 +17,7 @@
 .btn-arrow-right-png {
 	background-image: url("sprite.png");
 	background-repeat: no-repeat;
-	background-position: -2px -94px;
+	background-position: -35px -0px;
 	width: 31px;
 	height: 44px;
 }
@@ -25,8 +25,80 @@
 .btn-arrow-right-hover-png {
 	background-image: url("sprite.png");
 	background-repeat: no-repeat;
-	background-position: -2px -140px;
+	background-position: -68px -0px;
 	width: 31px;
 	height: 44px;
+}
+
+.btn-bg-grad-png {
+	background-image: url("sprite.png");
+	background-repeat: no-repeat;
+	background-position: -35px -46px;
+	width: 50px;
+	height: 30px;
+}
+
+.btn-bg-img-png {
+	background-image: url("sprite.png");
+	background-repeat: no-repeat;
+	background-position: -2px -92px;
+	width: 50px;
+	height: 30px;
+}
+
+.btn-bg-radient-png {
+	background-image: url("sprite.png");
+	background-repeat: no-repeat;
+	background-position: -2px -284px;
+	width: 50px;
+	height: 30px;
+}
+
+.btn-bg-solid-png {
+	background-image: url("sprite.png");
+	background-repeat: no-repeat;
+	background-position: -2px -156px;
+	width: 50px;
+	height: 30px;
+}
+
+.btn-new-3d-table-png {
+	background-image: url("sprite.png");
+	background-repeat: no-repeat;
+	background-position: -2px -188px;
+	width: 50px;
+	height: 30px;
+}
+
+.btn-old-2d-table-png {
+	background-image: url("sprite.png");
+	background-repeat: no-repeat;
+	background-position: -2px -220px;
+	width: 50px;
+	height: 30px;
+}
+
+.btn-old-3d-table-png {
+	background-image: url("sprite.png");
+	background-repeat: no-repeat;
+	background-position: -2px -252px;
+	width: 50px;
+	height: 30px;
+}
+
+.btn-taably-logo-png {
+	background-image: url("sprite.png");
+	background-repeat: no-repeat;
+	background-position: -2px -316px;
+	width: 103px;
+	height: 59px;
+}
+
+.btn-thin-2d-table-png {
+	background-image: url("sprite.png");
+	background-repeat: no-repeat;
+	background-position: -2px -124px;
+	width: 50px;
+	height: 30px;
 }
 
