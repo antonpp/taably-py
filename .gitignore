@@ -1,8 +1,9 @@
-/taably/static/resources
+taably/static/resources
+taably/static/.sass-cache
 venv
 *.pyc
 *.swp
-/taably/local_settings.py
+taably/local_settings.py
 .DS_Store
 *.DS_Strore
 *.py[cod]
