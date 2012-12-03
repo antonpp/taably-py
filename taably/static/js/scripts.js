@@ -330,12 +330,15 @@ window.onload = function () {
     $(CLASS_ROOM_SELECTOR).removeClass('active');
     $(this).addClass('active');
     designer && designer.setSize(parseInt($(this).data('width')), parseInt($(this).data('height')));
-    designer.setOverlay(window.STATIC_URL + 'img/overlay/' + $(this).attr('data-room') + '_overlay.png');
+    showLoader();
+    designer.setOverlay(window.STATIC_URL + 'img/overlay/' + $(this).attr('data-room') + '_overlay.png', hideLoader);
   });
 
   $(CLASS_ROOM_SELECTOR).hover(function(){
-    if ($(this).hasClass('active'))
-      designer && designer.setOverlay(window.STATIC_URL + 'img/overlay/' + $(this).attr('data-room') + '_overlay.png');
+    if ($(this).hasClass('active')) {
+      showLoader();
+      designer && designer.setOverlay(window.STATIC_URL + 'img/overlay/' + $(this).attr('data-room') + '_overlay.png', hideLoader);
+    }
   }, function() {
     if ($(this).hasClass('active'))
       designer && designer.clearOverlay();

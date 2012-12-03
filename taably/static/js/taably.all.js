@@ -14049,7 +14049,19 @@ var DEBUG = true;
       objects.feltDragger && objects.feltDragger.set('left', middleX);
       ctx.renderAll();
     }
-
+    this.setOverlay = function(url, callback) {
+      ctx.setOverlayImage(url, function(){
+        ctx.renderAll();
+        if (typeof callback === 'function')
+          callback();
+      });
+    }
+    this.clearOverlay = function() {
+      if (ctx.overlayImage) {
+        delete ctx.overlayImage;
+        ctx.renderAll();
+      }
+    }
     // check presence of canvas element and initialize
     this.$el = $("#"+id);
     if (typeof this.$el === 'undefined' || this.$el.length === 0) { 
@@ -14564,7 +14576,20 @@ window.onload = function () {
     $(CLASS_ROOM_SELECTOR).removeClass('active');
     $(this).addClass('active');
     designer && designer.setSize(parseInt($(this).data('width')), parseInt($(this).data('height')));
+    showLoader();
+    designer.setOverlay(window.STATIC_URL + 'img/overlay/' + $(this).attr('data-room') + '_overlay.png', hideLoader);
   });
+
+  $(CLASS_ROOM_SELECTOR).hover(function(){
+    if ($(this).hasClass('active')) {
+      showLoader();
+      designer && designer.setOverlay(window.STATIC_URL + 'img/overlay/' + $(this).attr('data-room') + '_overlay.png', hideLoader);
+    }
+  }, function() {
+    if ($(this).hasClass('active'))
+      designer && designer.clearOverlay();
+  });
+
   showLoader();
   
   var designer;
@@ -14605,16 +14630,16 @@ window.onload = function () {
   })
 
   $(ID_DOWNLOAD_LAYOUT_BTN).click(function() {
-    var onSuccess = function() {
-      hideLoader();
+    if ($(CLASS_ROOM_SELECTOR+".active").length === 1) {
+      var selRoom = $(CLASS_ROOM_SELECTOR+".active").attr('data-room');
+    } else {
+      // render for ipoker if no room selected or somehow multiple
+      var selRoom = "ipoker";
     }
-    var onFail = function() {
-      alert('An error occured when downloading the image. Sorry about that.');
-    }
-    __.log(JSON.stringify(designer));
     $('<form action="/api/v0/layout/render/" method="POST">' + 
     '<input type="hidden" name="data" value="' + escape(JSON.stringify(designer)) + '">' +
     '<input type="hidden" name="name" value="' + escape(window.layout.name) + '">' +
+    '<input type="hidden" name="room" value="' + escape(selRoom) + '">' +
     '</form>').appendTo('body').submit().remove();
   }); // on download click
 
