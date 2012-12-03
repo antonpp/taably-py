@@ -330,7 +330,17 @@ window.onload = function () {
     $(CLASS_ROOM_SELECTOR).removeClass('active');
     $(this).addClass('active');
     designer && designer.setSize(parseInt($(this).data('width')), parseInt($(this).data('height')));
+    designer.setOverlay(window.STATIC_URL + 'img/overlay/' + $(this).attr('data-room') + '_overlay.png');
   });
+
+  $(CLASS_ROOM_SELECTOR).hover(function(){
+    if ($(this).hasClass('active'))
+      designer && designer.setOverlay(window.STATIC_URL + 'img/overlay/' + $(this).attr('data-room') + '_overlay.png');
+  }, function() {
+    if ($(this).hasClass('active'))
+      designer && designer.clearOverlay();
+  });
+
   showLoader();
   
   var designer;
@@ -374,8 +384,8 @@ window.onload = function () {
     if ($(CLASS_ROOM_SELECTOR+".active").length === 1) {
       var selRoom = $(CLASS_ROOM_SELECTOR+".active").attr('data-room');
     } else {
-      // render for party_poker if no room selected or somehow multiple
-      var selRoom = "party_poker";
+      // render for ipoker if no room selected or somehow multiple
+      var selRoom = "ipoker";
     }
     $('<form action="/api/v0/layout/render/" method="POST">' + 
     '<input type="hidden" name="data" value="' + escape(JSON.stringify(designer)) + '">' +

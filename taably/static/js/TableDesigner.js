@@ -419,7 +419,19 @@
       objects.feltDragger && objects.feltDragger.set('left', middleX);
       ctx.renderAll();
     }
-
+    this.setOverlay = function(url, callback) {
+      ctx.setOverlayImage(url, function(){
+        ctx.renderAll();
+        if (typeof callback === 'function')
+          callback();
+      });
+    }
+    this.clearOverlay = function() {
+      if (ctx.overlayImage) {
+        delete ctx.overlayImage;
+        ctx.renderAll();
+      }
+    }
     // check presence of canvas element and initialize
     this.$el = $("#"+id);
     if (typeof this.$el === 'undefined' || this.$el.length === 0) { 
